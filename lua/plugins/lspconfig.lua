@@ -1,6 +1,15 @@
 return {
   "neovim/nvim-lspconfig",
   opts = {
-    inlay_hints = { enabled = false }
-  }
+    inlay_hints = { enabled = false },
+    servers = {
+      clangd = {
+        cmd = {
+          "clangd",
+          -- let clangd ask Homebrew's GCC for its std library include paths
+          "--query-driver=/home/linuxbrew/.linuxbrew/bin/g++-*",
+        },
+      },
+    },
+  },
 }
